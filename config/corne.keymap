@@ -10,72 +10,87 @@
 #define LAYER4  4
 
 / {
+    behaviors {
+        td_mt: tap_dance_mod_tap {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <100>;
+            bindings = <&kp LGUI>, <&kp LALT>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
         combo_grave {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <0 1>;
             bindings = <&kp GRAVE>;
         };
 
         combo_exclamation {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <1 2>;
             bindings = <&kp EXCLAMATION>;
         };
 
         combo_atsign {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <2 3>;
             bindings = <&kp AT_SIGN>;
         };
 
         combo_hash {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <3 4>;
             bindings = <&kp HASH>;
         };
 
         combo_dollar {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <4 5>;
             bindings = <&kp DOLLAR>;
         };
 
         combo_percent {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <5 6>;
             bindings = <&kp PERCENT>;
         };
 
         combo_caret {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <6 7>;
             bindings = <&kp CARET>;
         };
 
         combo_ampersand {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <7 8>;
             bindings = <&kp AMPERSAND>;
         };
 
         combo_asterisk {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <8 9>;
             bindings = <&kp ASTERISK>;
         };
 
         combo_lpar {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <9 10>;
             bindings = <&kp LEFT_PARENTHESIS>;
         };
 
         combo_rpar {
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             key-positions = <10 11>;
             bindings = <&kp RIGHT_PARENTHESIS>;
+        };
+
+        combo_gui_option {
+            timeout-ms = <20>;
+            key-positions = <36 37>;
+            bindings = <&kp LG(LALT)>;
         };
     };
 
@@ -87,7 +102,7 @@
 &kp TAB        &kp Q  &kp W  &kp E     &kp R      &kp T       &kp Y     &kp U      &kp I      &kp O    &kp P     &kp BSPC
 &mt LCTRL ESC  &kp A  &kp S  &kp D     &kp F      &kp G       &kp H     &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LSHFT      &kp Z  &kp X  &kp C     &kp V      &kp B       &kp N     &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp ENTER
-                             &kp LGUI  &mo LAYER1 &kp SPACE   &kp SPACE &mo LAYER2 &mo LAYER3
+                             &td_mt    &mo LAYER1 &kp SPACE   &kp SPACE &mo LAYER2 &mo LAYER3
             >;
         };
 
