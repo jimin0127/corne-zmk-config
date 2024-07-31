@@ -9,88 +9,110 @@
 #define LAYER3  3
 #define LAYER4  4
 
-/ {
-    behaviors {
-        td_mt: tap_dance_mod_tap {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <100>;
-            bindings = <&kp LGUI>, <&kp LALT>;
-        };
-    };
+#define COMBO_TIMEOUT 20
+#define COMBO_PRIOR_IDLE 75
 
+/ {
     combos {
         compatible = "zmk,combos";
         combo_grave {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <0 1>;
             bindings = <&kp GRAVE>;
         };
 
         combo_exclamation {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <1 2>;
             bindings = <&kp EXCLAMATION>;
         };
 
         combo_atsign {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <2 3>;
             bindings = <&kp AT_SIGN>;
         };
 
         combo_hash {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <3 4>;
             bindings = <&kp HASH>;
         };
 
         combo_dollar {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <4 5>;
             bindings = <&kp DOLLAR>;
         };
 
         combo_percent {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <5 6>;
             bindings = <&kp PERCENT>;
         };
 
         combo_caret {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <6 7>;
             bindings = <&kp CARET>;
         };
 
         combo_ampersand {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <7 8>;
             bindings = <&kp AMPERSAND>;
         };
 
         combo_asterisk {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <8 9>;
             bindings = <&kp ASTERISK>;
         };
 
         combo_lpar {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <9 10>;
             bindings = <&kp LEFT_PARENTHESIS>;
         };
 
         combo_rpar {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <10 11>;
             bindings = <&kp RIGHT_PARENTHESIS>;
         };
 
         combo_gui_option {
-            timeout-ms = <20>;
+            timeout-ms = <COMBO_TIMEOUT>;
             key-positions = <36 37>;
             bindings = <&kp LG(LALT)>;
+        };
+
+        combo_ctrl_z {
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+            key-positions = <25 26>;
+            bindings = <&kp LG(Z)>;
+        };
+
+        combo_ctrl_x {
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+            key-positions = <26 27>;
+            bindings = <&kp LG(X)>;
+        };
+
+        combo_ctrl_c {
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+            key-positions = <27 28>;
+            bindings = <&kp LG(C)>;
+        };
+
+        combo_ctrl_v {
+            timeout-ms = <COMBO_TIMEOUT>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+            key-positions = <28 29>;
+            bindings = <&kp LG(V)>;
         };
     };
 
@@ -99,10 +121,10 @@
 
         default_layer {
             bindings = <
-&kp TAB        &kp Q  &kp W  &kp E     &kp R      &kp T       &kp Y     &kp U      &kp I      &kp O    &kp P     &kp BSPC
-&mt LCTRL ESC  &kp A  &kp S  &kp D     &kp F      &kp G       &kp H     &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT      &kp Z  &kp X  &kp C     &kp V      &kp B       &kp N     &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp ENTER
-                             &td_mt    &mo LAYER1 &kp SPACE   &kp SPACE &mo LAYER2 &mo LAYER3
+&mt ESC TAB         &kp Q  &kp W  &kp E     &kp R      &kp T       &kp Y     &kp U      &kp I      &kp O    &kp P     &kp BSPC
+&mt LCTRL CAPSLOCK  &kp A  &kp S  &kp D     &kp F      &kp G       &kp H     &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT           &kp Z  &kp X  &kp C     &kp V      &kp B       &kp N     &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp ENTER
+                                  &kp LALT  &kp LGUI   &mo LAYER1  &kp SPACE &mo LAYER2 &mo LAYER3
             >;
         };
 
