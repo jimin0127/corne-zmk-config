@@ -1,4 +1,4 @@
 # corne-zmk-config
 
-![Corne Keymap](./corne_keymap.ortho.svg)
+![Corne Keymap](./keymap-drawer/corne.svg)
 
